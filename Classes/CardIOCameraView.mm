@@ -106,7 +106,7 @@
     self.cardGuide.animationDuration = kRotationAnimationDuration;
     self.cardGuide.deviceOrientation = self.deviceOrientation;
     self.cardGuide.guideColor = config.guideColor;
-    [self.layer addSublayer:self.cardGuide];
+//    [self.layer addSublayer:self.cardGuide];
 
     NSString *scanInstructions = nil;
     scanInstructions = config.scanInstructions;
@@ -208,7 +208,7 @@
 
 - (CGRect)cameraPreviewFrame {
   CGRect cameraPreviewFrame = [[self class] previewRectWithinSize:self.bounds.size
-                                                        landscape:UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)];
+                                                        landscape:UIInterfaceOrientationIsLandscape(UIInterfaceOrientationLandscapeLeft)];
   return cameraPreviewFrame;
 }
 
@@ -281,11 +281,11 @@
                                                self.lightButton.frame.size);
 
 
-  InterfaceToDeviceOrientationDelta delta = orientationDelta([UIApplication sharedApplication].statusBarOrientation, self.deviceOrientation);
-  CGFloat rotation = -rotationForOrientationDelta(delta); // undo the orientation delta
-  CGAffineTransform r = CGAffineTransformMakeRotation(rotation);
-  self.logoView.transform = r;
-  self.lightButton.transform = r;
+//  InterfaceToDeviceOrientationDelta delta = orientationDelta([UIApplication sharedApplication].statusBarOrientation, self.deviceOrientation);
+//  CGFloat rotation = -rotationForOrientationDelta(delta); // undo the orientation delta
+//  CGAffineTransform r = CGAffineTransformMakeRotation(rotation);
+//  self.logoView.transform = r;
+//  self.lightButton.transform = r;
   
 #if CARDIO_DEBUG
   _debugTextField.frame = CGRectWithXYAndSize(cameraPreviewFrame.origin.x + 10.0f,
@@ -328,9 +328,9 @@
 }
 
 - (void)orientGuideLayerLabel {
-  InterfaceToDeviceOrientationDelta delta = orientationDelta([UIApplication sharedApplication].statusBarOrientation, self.deviceOrientation);
-  CGFloat rotation = -rotationForOrientationDelta(delta); // undo the orientation delta
-  self.guideLayerLabel.transform = CGAffineTransformMakeRotation(rotation);
+//  InterfaceToDeviceOrientationDelta delta = orientationDelta([UIApplication sharedApplication].statusBarOrientation, self.deviceOrientation);
+//  CGFloat rotation = -rotationForOrientationDelta(delta); // undo the orientation delta
+//  self.guideLayerLabel.transform = CGAffineTransformMakeRotation(rotation);
 }
 
 #pragma mark - Orientation
@@ -434,9 +434,9 @@
   //        DEVICE_LANDSCAPE_OR_PORTRAIT(self.deviceOrientation),
   //        rotation * 180 / M_PI);
 
-  SuppressCAAnimation(^{
-    self.videoStream.previewLayer.transform = transform;
-  });
+//  SuppressCAAnimation(^{
+//    self.videoStream.previewLayer.transform = transform;
+//  });
 }
 
 #if SIMULATE_CAMERA
