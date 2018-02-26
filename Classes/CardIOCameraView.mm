@@ -281,9 +281,9 @@
                                                self.lightButton.frame.size);
 
 
-//  InterfaceToDeviceOrientationDelta delta = orientationDelta([UIApplication sharedApplication].statusBarOrientation, self.deviceOrientation);
-//  CGFloat rotation = -rotationForOrientationDelta(delta); // undo the orientation delta
-//  CGAffineTransform r = CGAffineTransformMakeRotation(rotation);
+  InterfaceToDeviceOrientationDelta delta = orientationDelta([UIApplication sharedApplication].statusBarOrientation, self.deviceOrientation);
+  CGFloat rotation = -rotationForOrientationDelta(delta); // undo the orientation delta
+  CGAffineTransform r = CGAffineTransformMakeRotation(rotation);
 //  self.logoView.transform = r;
 //  self.lightButton.transform = r;
   
